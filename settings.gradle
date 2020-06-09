@@ -1,3 +1,5 @@
 rootProject.name='module4android'
 include ':app'
 include ':module-core'
+include ':module-annotation'
+include ':module-compiler'
