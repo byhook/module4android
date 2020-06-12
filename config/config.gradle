@@ -30,5 +30,4 @@ ext {
             "rxjava3"         : "io.reactivex.rxjava3:rxjava:$rxjava3Version",
             "rxandroid3"      : "io.reactivex.rxjava3:rxandroid:$rxandroid3Version"
     ]
-
 }
