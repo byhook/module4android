@@ -17,7 +17,8 @@ ext {
             constraintlayoutVersion = "1.1.3",
             okhttpVersion = '4.7.2',
             rxjava3Version = '3.0.4',
-            rxandroid3Version = '3.0.0'
+            rxandroid3Version = '3.0.0',
+            gsonVersion = '2.8.6'
     ]
 
     dependencies = [
@@ -28,6 +29,7 @@ ext {
             "constraintlayout": "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
             "okhttp"          : "com.squareup.okhttp3:okhttp:$okhttpVersion",
             "rxjava3"         : "io.reactivex.rxjava3:rxjava:$rxjava3Version",
-            "rxandroid3"      : "io.reactivex.rxjava3:rxandroid:$rxandroid3Version"
+            "rxandroid3"      : "io.reactivex.rxjava3:rxandroid:$rxandroid3Version",
+            'gson'            : "com.google.code.gson:gson:$gsonVersion"
     ]
 }

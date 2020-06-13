@@ -11,24 +11,36 @@ import android.content.res.Resources;
  */
 public class ModuleCore {
 
-    private static Application sApplication;
+    private static volatile ModuleCore sInstance;
 
-    public static void init(Application application){
+    private volatile static Application sApplication;
+
+    private volatile static boolean sEnableLog;
+
+    public static void init(Application application) {
         sApplication = application;
     }
 
-    public static Application getApplication(){
-        if(sApplication == null){
+    public static void enableLog(boolean enable) {
+        sEnableLog = enable;
+    }
+
+    public static boolean isLogEnabled() {
+        return sEnableLog;
+    }
+
+    public static Application getApplication() {
+        if (sApplication == null) {
             throw new IllegalStateException("you must init first");
         }
         return sApplication;
     }
 
-    public static Context getAppContext(){
+    public static Context getAppContext() {
         return getApplication().getApplicationContext();
     }
 
-    public static Resources getResources(){
+    public static Resources getResources() {
         return getAppContext().getResources();
     }
 

@@ -3,9 +3,13 @@ apply from: '../module.gradle'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(":module-core")
     implementation project(":module-utils")
 
     implementation rootProject.ext.dependencies["okhttp"]
     implementation rootProject.ext.dependencies["rxjava3"]
     implementation rootProject.ext.dependencies["rxandroid3"]
+
+
+    implementation rootProject.ext.dependencies["gson"]
 }

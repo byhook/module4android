@@ -1,2 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.handy.module.network" />
+    package="com.handy.module.network" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+</manifest>
