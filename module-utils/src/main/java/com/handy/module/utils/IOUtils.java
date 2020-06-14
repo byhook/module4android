@@ -5,8 +5,6 @@ import java.io.IOException;
 
 /**
  * @author: handy
- * @date: 2020-06-10
- * @description:
  */
 public class IOUtils {
 

@@ -6,8 +6,6 @@ import io.reactivex.rxjava3.core.Observer;
 
 /**
  * @anchor: handy
- * @date: 2020-06-13
- * @description:
  */
 public class ObservableHttp<T> extends Observable<T> {
 

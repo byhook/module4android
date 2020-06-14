@@ -2,29 +2,16 @@ package com.handy.module.utils;
 
 import android.content.Context;
 import android.os.Build;
-import android.os.Process;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-
-import dalvik.system.PathClassLoader;
 
 /**
  * @author: handy
- * @date: 2019-06-21
- * @description:
  */
 public class ProcessUtils {
 
     /**
      * 判断进程是否为64为
-     *
-     * @param context
-     * @return
      */
     public static boolean isProcess64(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

@@ -1,15 +1,11 @@
 package com.handy.module.life;
 
-import android.util.Log;
-
 import androidx.lifecycle.LifecycleOwner;
 
 import io.reactivex.rxjava3.core.Observable;
 
 /**
  * @author: handy
- * @date: 2020-06-11
- * @description:
  */
 public class RxLife {
 

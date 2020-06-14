@@ -28,8 +28,6 @@ import okhttp3.Response;
 
 /**
  * @author: handy
- * @date: 2020-06-09
- * @description:
  */
 public class RxHttp {
 

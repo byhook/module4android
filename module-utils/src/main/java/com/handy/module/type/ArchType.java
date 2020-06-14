@@ -2,8 +2,6 @@ package com.handy.module.type;
 
 /**
  * @author: handy
- * @date: 2020-06-10
- * @description: ELF文件头部获取架构类型
  */
 public interface ArchType {
 

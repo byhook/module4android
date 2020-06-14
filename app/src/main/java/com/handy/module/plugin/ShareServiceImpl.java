@@ -4,8 +4,6 @@ import com.handy.module.annotation.Module;
 
 /**
  * @anchor: handy
- * @date: 2020-06-13
- * @description:
  */
 @Module()
 public class ShareServiceImpl implements ShareService {

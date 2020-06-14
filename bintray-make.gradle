@@ -1,0 +1,92 @@
+apply plugin: 'com.jfrog.bintray'
+
+/**
+ * 获取构建版本
+ * @return
+ */
+Properties publishProperties = new Properties()
+publishProperties.load(file('bintrary.properties').newDataInputStream())
+
+Properties localProperties = new Properties()
+localProperties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+//生成源码jar包task
+task androidSourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+task androidJavadocs(type: Javadoc) {
+    title = "${project.version} API"
+    description "Generates Javadoc"
+    source = android.sourceSets.main.java.srcDirs
+    classpath += files(android.bootClasspath)
+    android.libraryVariants.all { variant ->
+        if (variant.name == 'release') {
+            owner.classpath += variant.javaCompileProvider.get().classpath
+        }
+    }
+    exclude '**/R.html', '**/R.*.html', '**/index.html', '**/*.kt'
+    options {
+        windowTitle("${project.version} Reference")
+        locale = 'en_US'
+        encoding = 'UTF-8'
+        charSet = 'UTF-8'
+        links("http://docs.oracle.com/javase/7/docs/api/")
+        linksOffline("http://d.android.com/reference", "${android.sdkDirectory}/docs/reference")
+        setMemberLevel(JavadocMemberLevel.PUBLIC)
+    }
+}
+//生成javadoc jar包task
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    archiveClassifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+bintray {
+    user = localProperties.getProperty("bintray.user")
+    key = localProperties.getProperty("bintray.apikey")
+    override = true
+    publish = true
+    pkg {
+        repo = 'maven'
+        name = project.name
+        userOrg = user
+        desc = 'bintary description'
+        licenses = ['Apache-2.0']
+        websiteUrl = publishProperties["WEB_SITE"]
+        vcsUrl = publishProperties["GIT_SITE"]
+        version {
+            name = publishProperties["VERSION"]
+            desc = "bintary version description"
+            released = new Date()
+            vcsTag = 'master'
+            /*gpg {
+                sign = true
+                passphrase = 'passphrase'
+            }
+            mavenCentralSync {
+                sync = true
+                user = 'userToken' //OSS user token: mandatory
+                password = 'paasword' //OSS user password: mandatory
+                close = '1'
+            }*/
+        }
+        publications = ['MyPublication']
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            MyPublication(MavenPublication) {
+                groupId publishProperties["GROUP_ID"]
+                artifactId publishProperties["ARTIFACT_ID"]
+                version publishProperties["VERSION"]
+
+                artifact bundleReleaseAar
+                artifact androidSourcesJar
+                artifact androidJavadocsJar
+            }
+        }
+    }
+}

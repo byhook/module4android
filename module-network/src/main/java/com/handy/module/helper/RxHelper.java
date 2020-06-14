@@ -2,8 +2,6 @@ package com.handy.module.helper;
 
 /**
  * @author: handy
- * @date: 2020-06-12
- * @description:
  */
 public class RxHelper {
 

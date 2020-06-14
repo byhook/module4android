@@ -3,7 +3,6 @@ package com.handy.module.life;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
-import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -17,8 +16,6 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 
 /**
  * @author: handy
- * @date: 2020-06-11
- * @description:
  */
 public final class LifeObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, LifecycleEventObserver {
 

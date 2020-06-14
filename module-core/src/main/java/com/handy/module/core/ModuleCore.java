@@ -14,8 +14,6 @@ import java.util.Map;
 
 /**
  * @author: handy
- * @date: 2020-06-09
- * @description:
  */
 public class ModuleCore {
 

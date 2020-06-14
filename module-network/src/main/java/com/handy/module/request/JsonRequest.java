@@ -5,8 +5,6 @@ import com.google.gson.GsonBuilder;
 
 /**
  * @anchor: handy
- * @date: 2020-06-13
- * @description:
  */
 public class JsonRequest<T> implements IRequestParam<String> {
 

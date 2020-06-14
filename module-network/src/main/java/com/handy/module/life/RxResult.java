@@ -5,7 +5,6 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.handy.module.helper.RxHelper;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -19,8 +18,6 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 
 /**
  * @author: handy
- * @date: 2020-06-11
- * @description:
  */
 public class RxResult<T> extends RxSource<Observer<? super T>> {
 

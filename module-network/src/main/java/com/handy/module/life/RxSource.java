@@ -5,8 +5,6 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
  * @author: handy
- * @date: 2020-06-11
- * @description:
  */
 public abstract class RxSource<T> {
 

@@ -8,8 +8,6 @@ import java.lang.reflect.Method;
 
 /**
  * @author: handy
- * @date: 2020-06-10
- * @description:
  */
 public class ArchUtils {
 

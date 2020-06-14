@@ -2,8 +2,6 @@ package com.handy.module.plugin;
 
 /**
  * @anchor: handy
- * @date: 2020-06-14
- * @description:
  */
 public interface ShareService {
 

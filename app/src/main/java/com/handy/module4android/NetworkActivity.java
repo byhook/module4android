@@ -14,8 +14,6 @@ import com.handy.module.utils.LogUtils;
 
 /**
  * @author: handy
- * @date: 2020-06-11
- * @description:
  */
 public class NetworkActivity extends AppCompatActivity {
 

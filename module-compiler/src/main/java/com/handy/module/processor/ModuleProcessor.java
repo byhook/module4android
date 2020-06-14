@@ -34,8 +34,6 @@ import javax.lang.model.util.Types;
 
 /**
  * @author: handy
- * @date: 2020-06-09
- * @description:
  */
 @AutoService(Processor.class)
 @SupportedAnnotationTypes({Constants.ANNOTATION_MODULE_TYPE})

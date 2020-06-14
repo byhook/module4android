@@ -8,8 +8,6 @@ import okhttp3.ResponseBody;
 
 /**
  * @anchor: handy
- * @date: 2020-06-13
- * @description:
  */
 public class GsonConverter implements IConverter {
 
