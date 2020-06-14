@@ -31,9 +31,7 @@ public class NetworkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         RxHttp.httpGet(null, null);
 
-        Hello hello = new Hello();
-        hello.name = "name";
-        IRequestParam request = new JsonRequest(hello);
+        IRequestParam request = new JsonRequest(new String());
         LogUtils.d(TAG, "request: " + request.convert());
     }
 }

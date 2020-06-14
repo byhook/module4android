@@ -40,8 +40,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(":module-core")
     implementation project(":module-network")
     implementation project(":module-utils")
+
+    implementation project(":module-annotation")
+    annotationProcessor project(":module-compiler")
 
     implementation rootProject.ext.dependencies["appcompat"]
     implementation rootProject.ext.dependencies["constraintlayout"]
