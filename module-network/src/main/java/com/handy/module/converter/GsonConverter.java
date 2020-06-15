@@ -7,7 +7,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 public class GsonConverter implements IConverter {
 

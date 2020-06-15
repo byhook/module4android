@@ -1,7 +1,7 @@
 package com.handy.module.request;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 public interface IRequestParam<R> {
 

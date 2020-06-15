@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 public class ObservableHttp<T> extends Observable<T> {
 

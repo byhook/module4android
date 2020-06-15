@@ -1,10 +1,10 @@
 package com.handy.module.response;
 
+import java.util.ArrayList;
+
 /**
- * @anchor: handy
+ * @author: handy
  */
 public interface IResponse {
-
-
 
 }

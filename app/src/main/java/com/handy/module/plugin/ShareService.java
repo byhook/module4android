@@ -1,7 +1,7 @@
 package com.handy.module.plugin;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 public interface ShareService {
 

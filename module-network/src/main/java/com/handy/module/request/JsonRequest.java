@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 public class JsonRequest<T> implements IRequestParam<String> {
 

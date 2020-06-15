@@ -51,13 +51,13 @@ bintray {
         repo = 'maven'
         name = project.name
         userOrg = user
-        desc = 'bintary description'
+        desc = publishProperties["PKG_DESCRIPTION"]
         licenses = ['Apache-2.0']
         websiteUrl = publishProperties["WEB_SITE"]
         vcsUrl = publishProperties["GIT_SITE"]
         version {
             name = publishProperties["VERSION"]
-            desc = "bintary version description"
+            desc = publishProperties["VERSION_DESCRIPTION"]
             released = new Date()
             vcsTag = 'master'
             /*gpg {

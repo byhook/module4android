@@ -1,7 +1,7 @@
 package com.handy.module.response;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 public class JsonResponse<T> implements IResponse {
 

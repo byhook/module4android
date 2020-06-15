@@ -3,7 +3,7 @@ package com.handy.module.plugin;
 import com.handy.module.annotation.Module;
 
 /**
- * @anchor: handy
+ * @author: handy
  */
 @Module()
 public class ShareServiceImpl implements ShareService {
