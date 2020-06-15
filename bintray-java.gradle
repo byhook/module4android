@@ -1,0 +1,70 @@
+apply plugin: 'com.jfrog.bintray'
+
+/**
+ * 获取构建版本
+ * @return
+ */
+Properties publishProperties = new Properties()
+publishProperties.load(file('bintrary.properties').newDataInputStream())
+
+Properties localProperties = new Properties()
+localProperties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = 'sources'
+}
+//生成javadoc jar包task
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveClassifier = 'javadoc'
+}
+
+bintray {
+    user = localProperties.getProperty("bintray.user")
+    key = localProperties.getProperty("bintray.apikey")
+    override = true
+    publish = true
+    pkg {
+        repo = 'maven'
+        name = project.name
+        userOrg = user
+        desc = publishProperties["PKG_DESCRIPTION"]
+        licenses = ['Apache-2.0']
+        websiteUrl = publishProperties["WEB_SITE"]
+        vcsUrl = publishProperties["GIT_SITE"]
+        version {
+            name = publishProperties["VERSION"]
+            desc = publishProperties["VERSION_DESCRIPTION"]
+            released = new Date()
+            vcsTag = 'master'
+            /*gpg {
+                sign = true
+                passphrase = 'passphrase'
+            }
+            mavenCentralSync {
+                sync = true
+                user = 'userToken' //OSS user token: mandatory
+                password = 'paasword' //OSS user password: mandatory
+                close = '1'
+            }*/
+        }
+        publications = ['MyPublication']
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            MyPublication(MavenPublication) {
+                groupId publishProperties["GROUP_ID"]
+                artifactId publishProperties["ARTIFACT_ID"]
+                version publishProperties["VERSION"]
+
+                artifact sourcesJar
+                artifact javadocJar
+            }
+        }
+    }
+}

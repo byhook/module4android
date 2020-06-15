@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply from: '../bintray-java.gradle'
 
 compileJava {
     sourceCompatibility = '1.8'
