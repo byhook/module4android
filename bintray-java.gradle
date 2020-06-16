@@ -62,6 +62,7 @@ project.afterEvaluate {
                 artifactId publishProperties["ARTIFACT_ID"]
                 version publishProperties["VERSION"]
 
+                artifact jar
                 artifact sourcesJar
                 artifact javadocJar
             }
