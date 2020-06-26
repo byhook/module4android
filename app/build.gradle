@@ -43,6 +43,7 @@ dependencies {
     implementation project(":module-core")
     implementation project(":module-network")
     implementation project(":module-utils")
+    implementation project(":module-immersion")
 
     implementation project(":module-annotation")
     annotationProcessor project(":module-compiler")

@@ -1,2 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.handy.module.immersion" />
+    package="com.handy.module.immersion">
+
+    <application>
+        <activity
+            android:name="com.handy.module.pages.ImmersionActivity"
+            android:theme="@style/AppNoActionBarTheme" />
+    </application>
+</manifest>

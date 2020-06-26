@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.handy.module.core.ModuleCore;
+import com.handy.module.pages.ImmersionActivity;
 import com.handy.module.plugin.ShareService;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,5 +26,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "" + ModuleCore.getService(ShareService.class).getCount(10, 50));
         Log.d(TAG, "" + ModuleCore.getService(ShareService.class).getNumber());
         NetworkActivity.intentStart(this);
+    }
+
+    public void onImmersionClick(View view) {
+        ImmersionActivity.intentStart(this);
     }
 }

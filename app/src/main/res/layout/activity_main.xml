@@ -13,4 +13,11 @@
         android:text="网络模块"
         android:onClick="onNetworkClick"/>
 
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="沉浸式"
+        android:onClick="onImmersionClick"/>
+
 </LinearLayout>
