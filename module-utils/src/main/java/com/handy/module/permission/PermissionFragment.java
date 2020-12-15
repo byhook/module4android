@@ -1,5 +1,6 @@
 package com.handy.module.permission;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,8 +11,8 @@ import androidx.fragment.app.FragmentActivity;
 import com.handy.module.utils.LogUtils;
 
 /**
- * @date: 2020-12-14
- * @description:
+ * date: 2020-12-14
+ * description:
  */
 public class PermissionFragment extends Fragment {
 
@@ -20,6 +21,9 @@ public class PermissionFragment extends Fragment {
     private static final String EXTRA_PERMISSIONS = "EXTRA_PERMISSIONS";
 
     private OnPermissionCallback mOnPermissionCallback;
+
+    private String[] mRequestPermissions;
+    private int mRequestCode;
 
     private PermissionFragment() {
 
@@ -48,9 +52,12 @@ public class PermissionFragment extends Fragment {
     private void setupPermission() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            String[] permissions = arguments.getStringArray(EXTRA_PERMISSIONS);
-            int requestCode = arguments.getInt(EXTRA_REQUEST_CODE);
-            requestPermissions(permissions, requestCode);
+            mRequestPermissions = arguments.getStringArray(EXTRA_PERMISSIONS);
+            mRequestCode = arguments.getInt(EXTRA_REQUEST_CODE);
+            requestPermissions(mRequestPermissions, mRequestCode);
+        } else if(mOnPermissionCallback != null){
+            mOnPermissionCallback.onRequestPermissionFailed(null,-1);
+            recycleFragmentComplete();
         }
     }
 
@@ -58,13 +65,23 @@ public class PermissionFragment extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         LogUtils.d(TAG, "onRequestPermissionsResult");
-        if(mOnPermissionCallback != null){
-            mOnPermissionCallback.onRequestPermissionSuccess(null,200);
+        if (mOnPermissionCallback != null && grantResults != null) {
+            int gratedCount = 0;
+            for (int ret : grantResults) {
+                if (PackageManager.PERMISSION_GRANTED == ret) {
+                    gratedCount++;
+                }
+            }
+            if(gratedCount == grantResults.length){
+                mOnPermissionCallback.onRequestPermissionSuccess(permissions, mRequestCode);
+            } else {
+                mOnPermissionCallback.onRequestPermissionFailed(permissions, mRequestCode);
+            }
         }
-        recyclePermissionFragment();
+        recycleFragmentComplete();
     }
 
-    private void recyclePermissionFragment() {
+    private void recycleFragmentComplete() {
         FragmentActivity hostActivity = getActivity();
         if (hostActivity != null && !hostActivity.isFinishing()) {
             hostActivity.getSupportFragmentManager().beginTransaction()

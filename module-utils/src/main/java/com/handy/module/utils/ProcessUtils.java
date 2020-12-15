@@ -12,6 +12,8 @@ public class ProcessUtils {
 
     /**
      * 判断进程是否为64为
+     * @param context 上下文
+     * @return 成功失败
      */
     public static boolean isProcess64(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

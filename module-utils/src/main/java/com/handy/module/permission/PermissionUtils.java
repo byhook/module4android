@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 /**
- * @date: 2020-12-14
- * @description:
+ * date: 2020-12-14
+ * description:
  */
 public class PermissionUtils {
 

@@ -1,8 +1,8 @@
 package com.handy.module.permission;
 
 /**
- * @date: 2020-12-14
- * @description:
+ * date: 2020-12-14
+ * description:
  */
 public interface OnPermissionCallback {
 
