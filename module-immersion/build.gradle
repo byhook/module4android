@@ -1,5 +1,4 @@
-apply from: '../module.gradle'
-apply from: '../bintray-make.gradle'
+apply from: "$rootDir/module.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
