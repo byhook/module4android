@@ -1,10 +1,10 @@
 ext {
-    android = [
-            compileSdkVersion: 29,
-            buildToolsVersion: "29.0.2",
+
+    buildVersion = [
+            compileSdkVersion: 32,
             applicationId    : "com.handy.module4android",
-            minSdkVersion    : 16,
-            targetSdkVersion : 29,
+            minSdkVersion    : 21,
+            targetSdkVersion : 32,
             versionCode      : 1,
             versionName      : "1.0.0"
     ]
@@ -31,5 +31,9 @@ ext {
             "rxjava3"         : "io.reactivex.rxjava3:rxjava:$rxjava3Version",
             "rxandroid3"      : "io.reactivex.rxjava3:rxandroid:$rxandroid3Version",
             'gson'            : "com.google.code.gson:gson:$gsonVersion"
+    ]
+
+    versions = [
+            "okhttp3_version": "4.9.3"
     ]
 }

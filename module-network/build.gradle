@@ -1,5 +1,4 @@
-apply from: '../module.gradle'
-apply from: '../bintray-make.gradle'
+apply from: "$rootDir/module.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -7,9 +6,7 @@ dependencies {
     implementation project(":module-core")
     implementation project(":module-utils")
 
-    implementation rootProject.ext.dependencies["okhttp"]
-    implementation rootProject.ext.dependencies["rxjava3"]
-    implementation rootProject.ext.dependencies["rxandroid3"]
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp3_version}"
 
     implementation rootProject.ext.dependencies["gson"]
 }
