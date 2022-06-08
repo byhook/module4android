@@ -28,8 +28,6 @@ ext {
             "espresso-core"   : "androidx.test.espresso:espresso-core:$espressoVersion",
             "constraintlayout": "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
             "okhttp"          : "com.squareup.okhttp3:okhttp:$okhttpVersion",
-            "rxjava3"         : "io.reactivex.rxjava3:rxjava:$rxjava3Version",
-            "rxandroid3"      : "io.reactivex.rxjava3:rxandroid:$rxandroid3Version",
             'gson'            : "com.google.code.gson:gson:$gsonVersion"
     ]
 
