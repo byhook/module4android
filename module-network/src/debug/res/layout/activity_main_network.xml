@@ -4,13 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/top_main_layer"
+    <Button
+        android:id="@+id/btn_get_request"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#123456"
+        android:layout_height="wrap_content"
+        android:text="Get请求"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_get_request" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@ class NetCore {
         private val okHttpClient = OkHttpClient()
 
         @JvmStatic
-        fun newCall(request: NetRequest): NetCall {
+        fun newCall(url: String, request: NetRequest): NetCall {
             return NetHttpCall(okHttpClient)
         }
 

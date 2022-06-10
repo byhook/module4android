@@ -31,7 +31,10 @@ class NetHttpCall(private val okHttpClient: OkHttpClient) : NetCall {
                 .build()
             GlobalScope.launch(Dispatchers.Default){
                 val response = okHttpClient.newCall(request).execute()
-                LogUtils.d(TAG,"response.body:${response.body?.string()} ${Thread.currentThread()}")
+                val bodyStr = response.body?.string()
+                trySend(Result.success(bodyStr as T))
+                LogUtils.d(TAG,"response.body:$bodyStr ${Thread.currentThread()}")
+                close()
             }
             awaitClose {
 

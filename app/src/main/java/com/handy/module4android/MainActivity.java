@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onNetworkClick(View view) {
-        NetworkActivity.Companion.intentStart(this);
+        NetworkActivity.intentStart(this);
     }
 
     public void onImmersionClick(View view) {
