@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NetworkActivity" />
+        <activity android:name="com.handy.module.debug.NetworkActivity" />
         <activity android:name=".PermissionActivity" />
     </application>
 

@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.handy.module.core.ModuleCore;
+import com.handy.module.debug.NetworkActivity;
 import com.handy.module.pages.ImmersionActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onNetworkClick(View view) {
-        ModuleCore.initMapper();
-        NetworkActivity.intentStart(this);
+        NetworkActivity.Companion.intentStart(this);
     }
 
     public void onImmersionClick(View view) {

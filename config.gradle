@@ -1,23 +1,21 @@
 ext {
 
     buildVersion = [
-            compileSdkVersion: 32,
+            compileSdkVersion: 31,
             applicationId    : "com.handy.module4android",
             minSdkVersion    : 21,
-            targetSdkVersion : 32,
+            targetSdkVersion : 31,
             versionCode      : 1,
             versionName      : "1.0.0"
     ]
 
     libVersion = [
-            appcompatVersion = "1.1.0",
+            appcompatVersion = "1.4.2",
             junitVersion = "4.12",
             extJunitVersion = "1.1.1",
             espressoVersion = "3.2.0",
-            constraintlayoutVersion = "1.1.3",
+            constraintlayoutVersion = "2.1.4",
             okhttpVersion = '4.7.2',
-            rxjava3Version = '3.0.4',
-            rxandroid3Version = '3.0.0',
             gsonVersion = '2.8.6'
     ]
 
@@ -32,7 +30,8 @@ ext {
     ]
 
     versions = [
-            "okhttp3_version"                   : "4.9.3",
-            "kotlinx_coroutines_android_version": "1.3.9"
+            "okhttp3_version"           : "4.9.3",
+            "kotlinx_coroutines_version": "1.6.2",
+            "lifecycle_version"         : "2.4.1"
     ]
 }

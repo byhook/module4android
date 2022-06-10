@@ -1,5 +1,9 @@
 package com.handy.module.network
 
+import com.handy.module.network.channel.NetHttpCall
+import com.handy.module.network.request.NetRequest
+import okhttp3.OkHttpClient
+
 /**
  * @author: handy
  * @date: 2022-06-08
@@ -7,6 +11,15 @@ package com.handy.module.network
  */
 class NetCore {
 
+    companion object {
+        private val okHttpClient = OkHttpClient()
+
+        @JvmStatic
+        fun newCall(request: NetRequest): NetCall {
+            return NetHttpCall(okHttpClient)
+        }
+
+    }
 
 
 }
