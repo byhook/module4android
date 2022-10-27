@@ -1,0 +1,94 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+File mavenPublishFile = file("${project.getProjectDir()}/maven-publish.properties")
+def mavenPublishProperties = new Properties()
+mavenPublishFile.withInputStream { stream ->
+    mavenPublishProperties.load(stream)
+}
+
+File secretPropsFile = project.rootProject.file('local.properties')
+if (secretPropsFile.exists()) {
+    Properties p = new Properties()
+    new FileInputStream(secretPropsFile).withCloseable { is -> p.load(is) }
+    p.each { name, value -> ext[name] = value }
+} else {
+    ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
+    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
+    ext["signing.keyId"] = System.getenv('SIGNING_KEY_ID')
+    ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
+    ext["signing.key"] = System.getenv('SIGNING_KEY')
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.convention('sources')
+    archiveClassifier.set('sources')
+    if (project.hasProperty("kotlin")) {
+        from android.sourceSets.main.java.getSrcDirs()
+    } else if (project.hasProperty("android")) {
+        from android.sourceSets.main.java.sourceFiles
+    } else {
+        println project
+        from sourceSets.main.allSource
+    }
+    exclude "**/R.class"
+    exclude "**/BuildConfig.class"
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+
+task androidJavadocsJar(type: Jar) {
+    archiveClassifier.convention('javadoc')
+    archiveClassifier.set('javadoc')
+    from "$buildDir/dokka"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = mavenPublishProperties.getProperty("configGroupId")
+                artifactId = mavenPublishProperties.getProperty("configArtifactId")
+                version = mavenPublishProperties.getProperty("configVersionName")
+
+                artifact androidSourcesJar
+                artifact androidJavadocsJar
+
+                pom {
+                    name = mavenPublishProperties.getProperty("configPomName")
+                    description = mavenPublishProperties.getProperty("configPomDescription")
+                    url = mavenPublishProperties.getProperty("configPomUrl")
+                    licenses {
+                        license {
+                            name = 'License'
+                            url = mavenPublishProperties.getProperty("configPomUrl")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'byhook'
+                            name = 'handy'
+                            email = 'byhook@163.com'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:github.com/getstream/stream-chat-android.git'
+                        developerConnection = 'scm:git:ssh://github.com/getstream/stream-chat-android.git'
+                        url = 'https://github.com/getstream/stream-chat-android/tree/main'
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    useInMemoryPgpKeys(
+            rootProject.ext["signing.keyId"],
+            rootProject.ext["signing.key"],
+            rootProject.ext["signing.password"]
+    )
+    sign publishing.publications
+}
