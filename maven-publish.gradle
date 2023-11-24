@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-File mavenPublishFile = file("${project.getProjectDir()}/maven-publish.properties")
+File mavenPublishFile = file("${project.getProjectDir()}/gradle.properties")
 def mavenPublishProperties = new Properties()
 mavenPublishFile.withInputStream { stream ->
     mavenPublishProperties.load(stream)
