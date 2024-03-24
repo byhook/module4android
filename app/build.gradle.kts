@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.handy.module4android"
+    namespace = "io.github.byhook.module4android"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.handy.module4android"
+        applicationId = "io.github.byhook.module4android"
         minSdk = 21
         targetSdk = 34
         versionCode = 1

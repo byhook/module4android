@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdk = 34
-    namespace = "com.handy.module.core"
+    namespace = "io.github.byhook.module.core"
 
     defaultConfig {
         minSdk = 21

@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdk = 34
-    namespace = "com.handy.module.utils"
+    namespace = "io.github.byhook.module.utils"
     publishing {
         singleVariant("release") {
             withSourcesJar()

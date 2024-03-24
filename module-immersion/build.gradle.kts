@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdk = 34
-    namespace = "com.handy.module.immersion"
+    namespace = "io.github.byhook.module.immersion"
     publishing {
         singleVariant("release") {
             withSourcesJar()
