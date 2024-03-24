@@ -1,8 +1,0 @@
-rootProject.name='module4android'
-include ':app'
-include ':module-core'
-include ':module-annotation'
-include ':module-compiler'
-include ':module-network'
-include ':module-utils'
-include ':module-immersion'

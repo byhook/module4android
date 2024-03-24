@@ -1,7 +1,6 @@
 package com.handy.module.debug
 
 import androidx.lifecycle.ViewModel
-import com.handy.module.utils.LogUtils
 
 /**
  * @author: handy
@@ -9,9 +8,5 @@ import com.handy.module.utils.LogUtils
  * @description:
  */
 class MyViewModel : ViewModel() {
-
-    init {
-        LogUtils.d("MyViewModel","myViewModel:$this")
-    }
 
 }

@@ -1,6 +1,0 @@
-apply from: '../module.gradle'
-apply from: '../bintray-make.gradle'
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}

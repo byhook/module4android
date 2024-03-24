@@ -1,13 +1,9 @@
 package com.handy.module4android
 
-import com.handy.module.debug.NetworkActivity.Companion.intentStart
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.handy.module4android.R
-import com.handy.module.debug.NetworkActivity
 import com.handy.module.pages.ImmersionActivity
-import com.handy.module4android.PermissionActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onNetworkClick(view: View?) {
-        intentStart(this)
+
     }
 
     fun onImmersionClick(view: View?) {

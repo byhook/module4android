@@ -1,7 +1,0 @@
-apply from: "$rootDir/module.gradle"
-//apply plugin: 'com.vanniktech.maven.publish'
-apply from: "$rootDir/maven-publish.gradle"
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
