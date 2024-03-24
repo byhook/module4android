@@ -51,7 +51,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "io.github.byhook"
-            artifactId = "module-immersion"
+            artifactId = "immersion"
             version = "1.0.0"
             afterEvaluate {
                 from(components["release"])

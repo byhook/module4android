@@ -51,7 +51,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "io.github.byhook"
-            artifactId = "module-utils"
+            artifactId = "utils"
             version = "1.0.0"
             afterEvaluate {
                 from(components["release"])
